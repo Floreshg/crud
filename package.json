@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "deploy": "ng b --prod --base-href https://Floreshg.github.io/crud/ && npx ngh --dir=dist/crud",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
