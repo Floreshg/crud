@@ -1,0 +1,67 @@
+
+<section class="bg-white card-5">
+    <table class="table" >
+        <thead>
+          <tr>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Name</th>
+            <th scope="col" style="text-align:right;">Ajustes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let dato of datos">
+            <!-- <th scope="row" >{{dato.id}}</th> -->
+            <td>{{dato.name}}</td>
+            <td >
+              <div class="float-right">
+                  <button class="btn waves-effect waves-light red darken-1" (click)="deleteItem(dato)"><i class="fas fa-trash-alt"></i></button>
+              </div>
+             
+              <div class="float-right">
+                  <button class="btn waves-effect waves-light orange darken-1 mr-1" (click)="editItem(dato)" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-pencil-alt"></i></button>
+              </div>
+            </td>
+          </tr>
+          
+         
+        </tbody>
+      </table>
+</section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar: {{editarItem.name}}</h5>
+          <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="addItemEdit()">
+                <div class="form-group">
+                  <div class="input-field">
+                      <label for="">Editar tarea</label>
+                      <input type="text" name="name" class="form-control" 
+                      [(ngModel)]="editarItem.name">
+                    
+                  </div>
+                
+                </div>
+
+                <div class="modal-footer text-center">
+                    <button type="submit" class="btn btn-success">Editar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                 </div>
+                </form>
+                
+                
+        </div>
+    <!--     <div class="modal-footer">
+           <button type="button" class="btn btn-primary"  >Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
